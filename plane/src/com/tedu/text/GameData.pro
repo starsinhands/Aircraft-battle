@@ -1,0 +1,15 @@
+1=image/play/12.png
+2=image/play/11.png
+3=image/play/14.png
+4=image/play/14.png
+5=image/play/14.png
+up=image/play/12.png
+down=image/boss/1.png
+tool=image/prop/1.png
+tool=image/prop/2.png
+tool=image/prop/0.png
+boss1=image/boss/1.png
+boss2=image/boss/2.png
+boss3=image/boss/3.png
+boss4=image/boss/4.png
+boss5=image/boss/5.png
