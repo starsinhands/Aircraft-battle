@@ -1,0 +1,24 @@
+import pygame
+from pygame.sprite import Sprite
+#通过使用精灵（sprite）可以将游戏中的相关元素编组，进而同时操作编组中的所有元素
+
+class Bullet(Sprite):#管理飞船所发射子弹的类
+    def __init__(self,ai_game):#在飞船当前位置创建一个子弹对象
+        super().__init__()
+        self.screen=ai_game.screen
+        self.settings=ai_game.settings
+        self.color=self.settings.bullet_color
+
+        #在（0，0）处创建一个表示子弹的矩形，再设置正确的位置
+        self.rect=pygame.Rect(0,0,self.settings.bullet_width,self.settings.bullet_height)
+        self.rect.midtop=ai_game.ship.rect.midtop
+
+        #存储用小数表示的子弹位置
+        self.y=float(self.rect.y)
+
+    def update(self):#向上移动子弹
+        self.y-=self.settings.bullet_speed#更新表示子弹位置的小树枝：发射出去后子弹向上移动，意味着y坐标不断减小
+        self.rect.y=self.y#更新表示子弹的rect的位置
+
+    def draw_bullet(self):#在屏幕上绘制子弹
+        pygame.draw.rect(self.screen,self.color,self.rect)
